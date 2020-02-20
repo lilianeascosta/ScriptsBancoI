@@ -1,0 +1,36 @@
+{
+	"folders": {},
+	"connections": {
+		"microsoft-1703e6d0328-57794913782128a5": {
+			"provider": "sqlserver",
+			"driver": "microsoft",
+			"name": "SQL Server - localhost",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "1433",
+				"url": "jdbc:sqlserver://;serverName=localhost;",
+				"type": "dev",
+				"properties": {
+					"trustServerCertificate": "true"
+				},
+				"provider-properties": {
+					"@dbeaver-authentication@": "SQL_SERVER_PASSWORD",
+					"@dbeaver-show-all-schemas@": "false"
+				},
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}

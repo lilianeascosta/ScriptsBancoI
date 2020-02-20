@@ -1,0 +1,88 @@
+--criando banco de dados
+CREATE DATABASE bd_aula01
+
+--apagando banco de dados
+DROP DATABASE bd_aula01
+
+--usando o banco de dados
+USE bd_aula01
+
+--apagando tabela do banco selecionado
+DROP TABLE TB_FUNCIONARIO
+
+--criando tabela 
+CREATE TABLE TB_FUNCIONARIO(
+	MATRICULA      INT            NOT NULL PRIMARY KEY,
+	NOME           VARCHAR(50)    NOT NULL,
+	DT_NASCIMENTO  DATETIME       NOT NULL,
+	SALARIO        NUMERIC(10,2)  NOT NULL,
+	TELEFONE       VARCHAR(20)    NULL
+)
+
+--criando tabela
+CREATE TABLE TB_CLIENTE(
+	CODIGO INT IDENTITY(1,1)NOT NULL,
+	NOME VARCHAR(50)
+)
+
+--inserindo dados na tabela TB_FUNCIONARIO
+INSERT INTO TB_FUNCIONARIO(MATRICULA, NOME, DT_NASCIMENTO, SALARIO, TELEFONE)
+VALUES (1, 'CARLOS', '19800812', 2500.00, '9898-9090')
+
+--inserindo dados na tabela TB_FUNCIONARIO
+INSERT INTO TB_FUNCIONARIO(MATRICULA, NOME, DT_NASCIMENTO, SALARIO, TELEFONE)
+VALUES(2, 'JOAO', '19760523', 2000.00, NULL)
+
+--inserindo dados na tabela TB_FUNCIONARIO
+INSERT INTO TB_FUNCIONARIO(MATRICULA, NOME, DT_NASCIMENTO, SALARIO)
+VALUES(3, 'PATRICIA', '19820401', 3000.00)
+
+--selecionando determinadas colunas de uma determinada tabela
+SELECT MATRICULA , NOME, DT_NASCIMENTO, SALARIO, TELEFONE
+FROM TB_FUNCIONARIO
+
+--selecionando todas as colunas de uma tabela, dá erro pq MATRICULA nao é uma tabela
+SELECT * FROM MATRICULA
+
+--selecionando algumas colunas de uma determinada tabela em que a matricula é igual a 2
+SELECT MATRICULA, NOME, DT_NASCIMENTO
+FROM TB_FUNCIONARIO
+WHERE MATRICULA = 2
+
+--selecionando determinadas colunas de uma determinada tabela em que a matricula é igual a 1 ou é igual a 2
+SELECT MATRICULA, NOME, DT_NASCIMENTO
+FROM TB_FUNCIONARIO
+WHERE MATRICULA = 1 OR 
+	  MATRICULA = 2
+	  
+SELECT MATRICULA, NOME, DT_NASCIMENTO
+FROM TB_FUNCIONARIO
+WHERE MATRICULA = 1 AND
+	  NOME = 'CARLOS SANTOS'
+	  
+SELECT MATRICULA, NOME, DT_NASCIMENTO
+FROM TB_FUNCIONARIO
+WHERE MATRICULA NOT IN (3)
+
+--atualizando
+UPDATE TB_FUNCIONARIO
+SET NOME = 'JOAO DE DEUS'
+WHERE MATRICULA = 1
+
+UPDATE TB_FUNCIONARIO
+SET NOME = 'JOAO DE DEUS',
+	SALARIO = 2100.00
+WHERE MATRICULA = 2
+
+
+--removendo
+DELETE FROM TB_FUNCIONARIO
+WHERE MATRICULA = 3
+
+SELECT MATRICULA, NOME, DT_NASCIMENTO
+FROM TB_FUNCIONARIO
+WHERE SALARIO >= 3000.00
+
+--selecionando todas as colunas de uma determinada tabeça
+SELECT * FROM TB_FUNCIONARIO
+
