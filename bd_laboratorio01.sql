@@ -14,8 +14,8 @@ CREATE TABLE TB_FUNCIONARIO(
 SELECT * FROM TB_FUNCIONARIO
 
 CREATE TABLE TB_TELEFONE_FUNCIONARIO(
-	matricula_funcionario INT         NOT NULL,
-	telefone  VARCHAR(15) NOT NULL, 
+	matricula_funcionario INT NOT NULL,
+	telefone  VARCHAR(15)     NOT NULL, 
 	CONSTRAINT pk_telefone PRIMARY KEY (matricula_funcionario, telefone),
 	CONSTRAINT fk_telefone FOREIGN KEY (matricula_funcionario) REFERENCES TB_FUNCIONARIO(matricula_funcionario)
 )
